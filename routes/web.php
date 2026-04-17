@@ -1,20 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\LopHocController;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\StudentController;
 
-Route::resource('classes', LopHocController::class);
-Route::get('/login',[AuthController::class,'showLogin'])->name('login');
-Route::post('/login',[AuthController::class,'login']);
-
-Route::get('/register',[AuthController::class,'showRegister']);
-Route::post('/register',[AuthController::class,'register']);
-
-Route::get('/logout',[AuthController::class,'logout']);
-
-Route::middleware('auth')->group(function () {
-    Route::resource('classes', LopHocController::class);
-
+Route::get('/', function () {
+    return "Student Management";
 });
+
+Route::get('/cntt1', [StudentController::class, 'studentsCNTT1']);
+
+Route::get('/subject', [StudentController::class, 'subjectOfStudent']);
+
+Route::get('/count', [StudentController::class, 'countStudent']);
+
+Route::get('/total', [StudentController::class, 'totalSubject']);
+
+Route::get('/active', [StudentController::class, 'activeStudent']);

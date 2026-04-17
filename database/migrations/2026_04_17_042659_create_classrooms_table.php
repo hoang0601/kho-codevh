@@ -9,21 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-public function up(): void
-{
-    Schema::create('lop_hocs', function (Blueprint $table) {
-        $table->id();
-        $table->string('ten_lop');
-        $table->string('giao_vien');
-        $table->timestamps();
-    });
-}
+    public function up(): void
+    {
+        Schema::create('classrooms', function (Blueprint $table) {
+            $table->id();
+            $table->string('class_name');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('lop_hocs');
+        Schema::dropIfExists('classrooms');
     }
 };
